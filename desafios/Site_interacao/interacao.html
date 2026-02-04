@@ -1,17 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interação JS</title>
-    <style>
-        body { font: 12pt Arial;}
-        button {font-size: 12pt; padding: 30px;}
-        span {color: red;}
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Exemplo simples de interação com JavaScript">
 </head>
 <body>
-    <h1>Interagindo com o Botão</h1>
-    <button onclick="window.alert('Você clicou no botão!')">Clica em mim!</button>
+    <div class="container">
+        <div class="card">
+            <header>
+                <h1>Interagindo com o Botão</h1>
+                <p class="lead muted">Clique no botão para ver uma resposta elegante em vez de um alerta padrão.</p>
+            </header>
+
+            <main>
+                <nav class="tabs">
+                    <button class="tab-btn btn active" data-tab="interaction">Interação</button>
+                    <button class="tab-btn btn" data-tab="profile">Perfil</button>
+                </nav>
+
+                <section id="tab-interaction" class="tab-content">
+                    <div class="actions">
+                        <button id="actionBtn" class="btn">Clica em mim!</button>
+                        <div class="muted">Exemplo de interação simples</div>
+                    </div>
+                </section>
+
+                <section id="tab-profile" class="tab-content" style="display:none">
+                    <div class="profile">
+                        <div class="profile-avatar" aria-hidden="true"></div>
+                        <div class="profile-info">
+                            <h2 id="profileName">Usuário Exemplo</h2>
+                            <p id="profileBio" class="muted">Esta é uma bio rápida sobre o usuário. Clique em editar para alterar.</p>
+                            <div class="profile-actions">
+                                <button id="changeAvatar" class="btn">Alterar foto</button>
+                                <button id="removeAvatar" class="btn" style="background:#ef4444">Remover foto</button>
+                                <button id="editProfile" class="btn">Editar perfil</button>
+                                <button id="logout" class="btn" style="background:#e11d48">Sair</button>
+                            </div>
+                            <input id="avatarInput" type="file" accept="image/*" style="display:none">
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <script src="java.js"></script>
 </body>
-</html> 
+</html>
