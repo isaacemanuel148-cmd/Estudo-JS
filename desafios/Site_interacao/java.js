@@ -67,7 +67,7 @@
 			const interaction = document.getElementById('tab-interaction');
 			const profile = document.getElementById('tab-profile');
 			if(name === 'profile'){
-				interaction.style.display = 'none';
+				interaction.style.display = 'none';	
 				profile.style.display = '';
 			}else{
 				interaction.style.display = '';
@@ -146,6 +146,72 @@
 				}
 				localStorage.removeItem('profileAvatar');
 				showToast('Foto removida');
+			});
+		}
+
+		// === Matrix green-numbers effect ===
+		const matrixCanvas = document.getElementById('matrix');
+		let matrixController = null;
+		let matrixActive = false;
+
+		function setupMatrix(){
+			if(!matrixCanvas) return null;
+			const ctx = matrixCanvas.getContext('2d');
+			let width = 0;
+			let height = 0;
+			let fontSize = 16;
+			let columns = 0;
+			let drops = [];
+			const chars = '0123456789';
+
+			function resize(){
+				width = matrixCanvas.width = window.innerWidth;
+				height = matrixCanvas.height = window.innerHeight;
+				fontSize = Math.max(12, Math.floor(Math.min(20, width / 120)));
+				columns = Math.floor(width / fontSize) + 1;
+				drops = new Array(columns).fill(0).map(() => Math.floor(Math.random()*height/fontSize));
+			}
+
+			window.addEventListener('resize', resize);
+			resize();
+
+			let rafId = null;
+			function draw(){
+				ctx.fillStyle = 'rgba(0,0,0,0.06)';
+				ctx.fillRect(0,0,width,height);
+				ctx.font = `${fontSize}px monospace`;
+				for(let i=0;i<columns;i++){
+					const text = chars.charAt(Math.floor(Math.random()*chars.length));
+					ctx.fillStyle = `rgba(90,255,100,${0.35 + Math.random()*0.65})`;
+					ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+					if(drops[i]*fontSize > height && Math.random() > 0.975) drops[i] = 0;
+					drops[i]++;
+				}
+				rafId = requestAnimationFrame(draw);
+			}
+
+			return {
+				start(){
+					matrixCanvas.style.display = 'block';
+					draw();
+				},
+				stop(){
+					if(rafId) cancelAnimationFrame(rafId);
+					matrixCanvas.style.display = 'none';
+				}
+			};
+		}
+
+		matrixController = setupMatrix();
+
+		// Vincula ao botão: alterna efeito além do toast e animação atual
+		if(btn){
+			btn.addEventListener('click', () => {
+				// toggle matrix
+				if(matrixController){
+					matrixActive = !matrixActive;
+					if(matrixActive) matrixController.start(); else matrixController.stop();
+				}
 			});
 		}
 
