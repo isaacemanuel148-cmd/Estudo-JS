@@ -16,10 +16,34 @@
             </header>
 
             <main>
-                <div class="actions">
-                    <button id="actionBtn" class="btn">Clica em mim!</button>
-                    <div class="muted">Exemplo de interação simples</div>
-                </div>
+                <nav class="tabs">
+                    <button class="tab-btn btn active" data-tab="interaction">Interação</button>
+                    <button class="tab-btn btn" data-tab="profile">Perfil</button>
+                </nav>
+
+                <section id="tab-interaction" class="tab-content">
+                    <div class="actions">
+                        <button id="actionBtn" class="btn">Clica em mim!</button>
+                        <div class="muted">Exemplo de interação simples</div>
+                    </div>
+                </section>
+
+                <section id="tab-profile" class="tab-content" style="display:none">
+                    <div class="profile">
+                        <div class="profile-avatar" aria-hidden="true"></div>
+                        <div class="profile-info">
+                            <h2 id="profileName">Usuário Exemplo</h2>
+                            <p id="profileBio" class="muted">Esta é uma bio rápida sobre o usuário. Clique em editar para alterar.</p>
+                            <div class="profile-actions">
+                                <button id="changeAvatar" class="btn">Alterar foto</button>
+                                <button id="removeAvatar" class="btn" style="background:#ef4444">Remover foto</button>
+                                <button id="editProfile" class="btn">Editar perfil</button>
+                                <button id="logout" class="btn" style="background:#e11d48">Sair</button>
+                            </div>
+                            <input id="avatarInput" type="file" accept="image/*" style="display:none">
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
     </div>
