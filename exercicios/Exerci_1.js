@@ -3,3 +3,4 @@ let nome = "Isac";
 let idade = 19;
 
 console.log("Ola, meu nome é" + nome + "e tenho" + idade + "anos");
+console.log("ola, galera!!!!")
