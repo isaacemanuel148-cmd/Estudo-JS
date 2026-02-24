@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ícone de Download */
+.icon-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.download-icon {
+    width: 80px;
+    height: 80px;
+    color: #667eea;
+    animation: bounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(102, 126, 234, 0.2));
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Informações */
+.info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.info p {
+    color: #666;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+#filename {
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+#size-info {
+    font-size: 13px;
+    color: #999;
+}
+
+/* Barra de Progresso */
+.progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    width: 0%;
+    animation: fillProgress 2s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes fillProgress {
+    0% {
+        width: 0%;
+    }
+    90% {
+        width: 95%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Percentual */
+.percentage {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 25px;
+}
+
+/* Caixa de Status */
+.status-box {
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.status-box p {
+    font-size: 13px;
+    color: #555;
+    margin: 6px 0;
+    font-family: 'Courier New', monospace;
+}
+
+#status {
+    color: #667eea;
+    font-weight: 600;
+}
+
+#speed {
+    color: #764ba2;
+}
+
+#time {
+    color: #999;
+}
+
+/* Detalhes */
+.details {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.details p {
+    font-size: 12px;
+    color: #999;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .card {
+        padding: 40px 25px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .download-icon {
+        width: 60px;
+        height: 60px;
+    }
+}

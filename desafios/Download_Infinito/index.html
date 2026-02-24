@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download EYFAX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- Ícone de Download -->
+            <div class="icon-container">
+                <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+            </div>
+
+            <!-- Título -->
+            <h1>Baixando...</h1>
+
+            <!-- Informações -->
+            <div class="info">
+                <p id="filename">arquivo_importante.zip</p>
+                <p id="size-info"><span id="downloaded">0</span> MB / <span id="total">1024</span> MB</p>
+            </div>
+
+            <!-- Barra de Progresso -->
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <!-- Percentual -->
+            <p class="percentage" id="percentage">0%</p>
+
+            <!-- Status -->
+            <div class="status-box">
+                <p id="status">Iniciando download...</p>
+                <p id="speed">Velocidade: 0 MB/s</p>
+                <p id="time">Tempo restante: --:--</p>
+            </div>
+
+            <!-- Detalhes Técnicos -->
+            <div class="details">
+            
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
