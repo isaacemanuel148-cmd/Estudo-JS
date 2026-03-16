@@ -8,7 +8,6 @@ function compras(trabalho1, trabalho2){
 }
 
 console.log(compras(true, true))
-console.log(compras(true, false))
+console.log(compras(true, false)) 
 console.log(compras(false, true))
 console.log(compras(false, false))
-console.log("oi d")
