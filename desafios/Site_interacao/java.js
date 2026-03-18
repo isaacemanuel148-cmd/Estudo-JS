@@ -10,7 +10,7 @@
 		if (toastTimer) clearTimeout(toastTimer);
 		toastTimer = setTimeout(() => {
 			toastEl.classList.remove('show');
-			toastTimer = null;
+			toastTimer = null; 
 		}, duration);
 	}
 
@@ -102,7 +102,7 @@
 		const avatarInputEl = document.getElementById('avatarInput');
 
 		function setAvatarDataURL(dataURL){
-			if(!avatarEl) return;
+			if(!avatarEl) return; 
 			avatarEl.style.backgroundImage = `url('${dataURL}')`;
 			avatarEl.classList.add('has-image');
 			localStorage.setItem('profileAvatar', dataURL);

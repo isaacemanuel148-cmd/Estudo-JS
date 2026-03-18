@@ -1,5 +1,6 @@
 //Escreva uma função chamada `contarVogais` que recebe uma string e retorna a quantidade de vogais (a, e, i, o, u).
 
+ //Dica:
  //Converta para minúsculas primeiro
  //Use includes() para verificar se é vogal
  //Ou use uma expressão regular
