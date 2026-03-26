@@ -8,8 +8,8 @@
 function contarVogais(str) {
     let A = 0, E = 0, I = 0, O = 0, U = 0
     let resultTotal = 0
-    const minuscula = str.toLowerCase()
-    let vogais = minuscula.includes('a', 'e', 'i', 'o', 'u')
+    const minuscula = str.toLowerCase() // transforma todas as letras em minusculo
+    let vogais = minuscula.includes('a', 'e', 'i', 'o', 'u') // verifica se um array contém um elemento específico ou se uma string contém uma determinada sequência de caracteres, retornando true
     if(vogais == true){
         for(let i = 0; i < minuscula.length; i++){
             if(minuscula[i] == 'a'){
